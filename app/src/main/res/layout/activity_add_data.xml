@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:layout_margin="10dp"
+  android:gravity="right"
+  android:orientation="vertical"
+  tools:context=".ui.AddDataActivity">
+
+  <EditText
+    android:id="@+id/inpNama"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:ems="10"
+    android:hint="Nama"
+    android:inputType="textPersonName" />
+
+  <EditText
+    android:id="@+id/inpUmur"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:ems="10"
+    android:hint="Umur"
+    android:inputType="textPersonName" />
+
+  <EditText
+    android:id="@+id/inpBeratBadan"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:ems="10"
+    android:hint="BeratBadan"
+    android:inputType="textPersonName" />
+
+  <EditText
+    android:id="@+id/inpTekananDarah"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:ems="10"
+    android:hint="Tekanan Darah"
+    android:inputType="textPersonName" />
+
+  <Button
+    android:id="@+id/btnCekBPM"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Cek bpm" />
+
+  <EditText
+    android:id="@+id/inpAlamat"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:ems="10"
+    android:hint="Alamat"
+    android:inputType="textPersonName" />
+
+  <Button
+    android:id="@+id/btnGPS"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="GPS" />
+
+  <Button
+    android:id="@+id/btnSimpanData"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="50dp"
+    android:text="Simpan Data" />
+</LinearLayout>

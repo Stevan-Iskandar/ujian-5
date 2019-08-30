@@ -11,16 +11,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bootcamp.ujian5.R;
 import com.bootcamp.ujian5.model.Data;
+import com.location.aravind.getlocation.GeoLocator;
 
 public class AddDataActivity extends AppCompatActivity {
   EditText inpNama, inpUmur, inpBeratBadan, inpTekananDarah, inpAlamat;
   Button btnCekBPM, btnGPS, btnSimpanData;
-//  GeoLocator geoLocator;
+  GeoLocator geoLocator;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-//    geoLocator = new GeoLocator(getApplicationContext(), AddDataActivity.this);
+    geoLocator = new GeoLocator(getApplicationContext(), AddDataActivity.this);
     setContentView(R.layout.activity_add_data);
     setTitle("Add Data");
 
@@ -29,14 +30,15 @@ public class AddDataActivity extends AppCompatActivity {
     inpBeratBadan = (EditText) findViewById(R.id.inpBeratBadan);
     inpTekananDarah = (EditText) findViewById(R.id.inpTekananDarah);
     inpAlamat = (EditText) findViewById(R.id.inpAlamat);
+    inpAlamat.setEnabled(false);
 
     btnCekBPM = (Button) findViewById(R.id.btnCekBPM);
     btnGPS = (Button) findViewById(R.id.btnGPS);
     btnGPS.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-//        String text = geoLocator.getLattitude() + "," + geoLocator.getLongitude() + "\n" + geoLocator.getAddress();
-//        Toast.makeText(AddDataActivity.this, text, Toast.LENGTH_LONG).show();
+//        Toast.makeText(AddDataActivity.this, geoLocator.getAddress(), Toast.LENGTH_LONG).show();
+        inpAlamat.setText(geoLocator.getAddress());
       }
     });
 

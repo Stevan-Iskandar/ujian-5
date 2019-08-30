@@ -19,6 +19,7 @@
       </intent-filter>
     </activity>
     <activity android:name=".ui.AddDataActivity"></activity>
+    <activity android:name=".ui.HeartRate"></activity>
   </application>
   <uses-permission android:name="android.permission.INTERNET" />
   <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>

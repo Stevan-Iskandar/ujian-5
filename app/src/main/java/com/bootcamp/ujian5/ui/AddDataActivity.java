@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bootcamp.ujian5.R;
@@ -14,6 +15,9 @@ import com.bootcamp.ujian5.model.Data;
 import com.location.aravind.getlocation.GeoLocator;
 
 public class AddDataActivity extends AppCompatActivity {
+  public static int ID_FORM_2 = 2222;
+  String dataBPM;
+
   EditText inpNama, inpUmur, inpBeratBadan, inpTekananDarah, inpAlamat;
   Button btnCekBPM, btnGPS, btnSimpanData;
   GeoLocator geoLocator;
@@ -29,10 +33,18 @@ public class AddDataActivity extends AppCompatActivity {
     inpUmur = (EditText) findViewById(R.id.inpUmur);
     inpBeratBadan = (EditText) findViewById(R.id.inpBeratBadan);
     inpTekananDarah = (EditText) findViewById(R.id.inpTekananDarah);
+    inpTekananDarah.setEnabled(false);
     inpAlamat = (EditText) findViewById(R.id.inpAlamat);
     inpAlamat.setEnabled(false);
 
     btnCekBPM = (Button) findViewById(R.id.btnCekBPM);
+    btnCekBPM.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        AddDataActivity.this.startActivityForResult(new Intent(AddDataActivity.this, HeartRate.class), AddDataActivity.ID_FORM_2);
+      }
+    });
+
     btnGPS = (Button) findViewById(R.id.btnGPS);
     btnGPS.setOnClickListener(new View.OnClickListener() {
       @Override
@@ -61,5 +73,15 @@ public class AddDataActivity extends AppCompatActivity {
         AddDataActivity.this.startActivity(intent);
       }
     });
+  }
+
+  @Override
+  protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    super.onActivityResult(requestCode, resultCode, data);
+    if(requestCode == AddDataActivity.ID_FORM_2 && resultCode == 4){
+      setResult(4, data);
+      dataBPM = data.getStringExtra("BPM");
+      inpTekananDarah.setText(dataBPM);
+    }
   }
 }
